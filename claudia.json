@@ -1,0 +1,11 @@
+{
+  "lambda": {
+    "role": "classhub-executor",
+    "name": "classhub",
+    "region": "eu-central-1"
+  },
+  "api": {
+    "id": "9enspihmz5",
+    "module": "api"
+  }
+}

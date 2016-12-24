@@ -1,0 +1,12 @@
+{
+  "body" : {"PaymentStatus":"Overdue","Number":5},
+  "headers": {
+      },
+  "method": "PATCH",
+  "params": {
+        "coursesession": "748#987" ,
+        "emailaddress": "chris.muenzer@gmail.com" 
+      },
+  "query": {
+      }
+}

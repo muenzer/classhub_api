@@ -1,0 +1,12 @@
+{
+  "body" : {},
+  "headers": {
+      },
+  "method": "GET",
+  "params": {
+        "coursesession": "489#805" ,
+        "emailaddress": "gokhale.pooja@gmail.com" 
+      },
+  "query": {
+      }
+} 

@@ -1,0 +1,11 @@
+{
+  "body" : {"price": 150, "disabled": true},
+  "headers": {
+      },
+  "method": "PATCH",
+  "params": {
+        "id": "rkbugEfc"
+      },
+  "query": {
+      }
+}
