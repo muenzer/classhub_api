@@ -106,6 +106,28 @@ describe("DynamoDB interface", function () {
     });
   });
 
+  it("updates an item", function (done) {
+    var lib = require('../lib/update');
+    dynamo.tableName = "test";
+
+    var key = {
+      name: "foo",
+      id: id
+    };
+
+    var body = {
+      size: 5
+    };
+
+    var response = lib.respond(key, body, dynamo);
+
+    response.then(function (response) {
+      expect(response.name).toBe('foo');
+      expect(response.size).toBe(5);
+      done();
+    });
+  });
+
   it("deletes the table", function (done) {
     var params = {
       TableName: dynamo.tableName,

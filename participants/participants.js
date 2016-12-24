@@ -33,6 +33,19 @@ module.exports.setup = function (api, dynamo) {
     return lib.respond(key, dynamo);
   });
 
+  api.patch(config.root + '/{id}', function (request) {
+    var lib = require('lib/update');
+    dynamo.tableName = config.tableName;
+    
+    var key = {
+      id: decodeURIComponent(request.pathParams.id)
+    };
+
+    var data = request.body;
+
+    return lib.respond(key, body, dynamo);
+  });
+
   api.delete(config.root + '/{id}', function (request) {
     var lib = require('lib/delete');
   	dynamo.tableName = config.tableName;

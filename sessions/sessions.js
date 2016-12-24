@@ -44,6 +44,20 @@ module.exports.setup = function (api, dynamo) {
     return lib.respond(key, dynamo);
   });
 
+  api.patch(config.root + '/{class}' + '/{id}', function (request) {
+    var lib = require('lib/update');
+    dynamo.tableName = config.tableName;
+
+    var key = {
+      class: decodeURIComponent(request.pathParams.class),
+      id: decodeURIComponent(request.pathParams.id)
+    };
+
+    var data = request.body;
+
+    return lib.respond(key, body, dynamo);
+  });
+
   api.delete(config.root + '/{class}' + '/{id}', function (request) {
     var lib = require('lib/delete');
   	dynamo.tableName = config.tableName;
