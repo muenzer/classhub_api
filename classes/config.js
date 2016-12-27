@@ -5,10 +5,10 @@ module.exports.params = {
   TableName: module.exports.tableName,
   AttributeDefinitions: [
   { "AttributeName": "id", "AttributeType": "S" },
-  { "AttributeName": "client", "AttributeType": "S" }
+  { "AttributeName": "hub", "AttributeType": "S" }
   ],
   KeySchema: [
-  { "AttributeName": "client", "KeyType": "HASH" },
+  { "AttributeName": "hub", "KeyType": "HASH" },
   { "AttributeName": "id", "KeyType": "RANGE" }
   ],
   ProvisionedThroughput: {

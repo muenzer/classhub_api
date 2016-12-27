@@ -23,33 +23,33 @@ module.exports.setup = function (api, dynamo) {
   	return lib.respond(dynamo);
   });
 
-  api.get(config.root + '/{client}', function (request) {
+  api.get(config.root + '/{hub}', function (request) {
     var lib = require('lib/query');
   	dynamo.tableName = config.tableName;
 
     var key = {
-      client: decodeURIComponent(request.pathParams.client)
+      hub: decodeURIComponent(request.pathParams.hub)
     };
     return lib.respond(key, dynamo);
   });
 
-  api.get(config.root + '/{client}' + '/{id}', function (request) {
+  api.get(config.root + '/{hub}' + '/{id}', function (request) {
     var lib = require('lib/get');
   	dynamo.tableName = config.tableName;
 
     var key = {
-      client: decodeURIComponent(request.pathParams.client),
+      hub: decodeURIComponent(request.pathParams.hub),
   		id: decodeURIComponent(request.pathParams.id)
     };
     return lib.respond(key, dynamo);
   });
 
-  api.patch(config.root + '/{client}' + '/{id}', function (request) {
+  api.patch(config.root + '/{hub}' + '/{id}', function (request) {
     var lib = require('lib/update');
     dynamo.tableName = config.tableName;
 
     var key = {
-      client: decodeURIComponent(request.pathParams.client),
+      hub: decodeURIComponent(request.pathParams.hub),
       id: decodeURIComponent(request.pathParams.id)
     };
 
@@ -58,12 +58,12 @@ module.exports.setup = function (api, dynamo) {
     return lib.respond(key, body, dynamo);
   });
 
-  api.delete(config.root + '/{client}' + '/{id}', function (request) {
+  api.delete(config.root + '/{hub}' + '/{id}', function (request) {
     var lib = require('lib/delete');
   	dynamo.tableName = config.tableName;
 
   	var key = {
-      client: decodeURIComponent(request.pathParams.client),
+      hub: decodeURIComponent(request.pathParams.hub),
   		id: decodeURIComponent(request.pathParams.id)
     };
     return lib.respond(key, dynamo);

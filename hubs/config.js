@@ -1,5 +1,5 @@
-module.exports.tableName = "classhub-clients";
-module.exports.root = '/clients';
+module.exports.tableName = "classhub-hubs";
+module.exports.root = '/hubs';
 
 module.exports.params = {
   TableName: module.exports.tableName,

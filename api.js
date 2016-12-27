@@ -9,10 +9,10 @@ module.exports = api;
 
 var config = null;
 
-//Clients
-var clients = require('./clients/clients');
+//Hubs
+var hubs = require('./hubs/hubs');
 
-clients.setup(api, dynamo);
+hubs.setup(api, dynamo);
 
 //Classes
 var classes = require('./classes/classes');
