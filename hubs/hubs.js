@@ -13,8 +13,10 @@ module.exports.setup = function (api, dynamo) {
 
   	var data = request.body;
 
-  	return lib.respond(data, dynamo);
-  }, { success: 201 });
+    var conditional = 'attribute_not_exists(url)';
+
+  	return lib.respond(data, dynamo, conditional);
+  }, { success: {code: 201} , error: {code: 403}});
 
   api.get(config.root, function (request) {
   	var lib = require('lib/scan');
@@ -36,7 +38,7 @@ module.exports.setup = function (api, dynamo) {
   api.patch(config.root + '/{url}', function (request) {
     var lib = require('lib/update');
     dynamo.tableName = config.tableName;
-    
+
   	var key = {
       url: decodeURIComponent(request.pathParams.url)
     };

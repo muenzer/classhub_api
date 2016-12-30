@@ -55,6 +55,8 @@ describe("DynamoDB interface", function () {
     var response = lib.respond(data, dynamo);
 
     response.then(function (response) {
+      // var fufilled = true;
+      // expect(fufilled).toBeTruthy();
       expect(response.name).toBe('foo');
       done();
     });
@@ -124,6 +126,28 @@ describe("DynamoDB interface", function () {
     response.then(function (response) {
       expect(response.name).toBe('foo');
       expect(response.size).toBe(5);
+      done();
+    });
+  });
+
+  it("can't overwrite an item", function (done) {
+    var lib = require('../lib/create');
+    dynamo.tableName = "test";
+
+    var data = {
+      name: "foo",
+      id: id
+    };
+
+    var conditional = 'attribute_not_exists(#name) AND attribute_not_exists(id)';
+    var attributes = {
+      '#name': 'name'
+    };
+
+    var response = lib.respond(data, dynamo, conditional, attributes);
+
+    response.catch(function (response) {
+      expect(response).toMatch('ConditionalCheckFailedException');
       done();
     });
   });
