@@ -53,9 +53,7 @@ module.exports.setup = function (api, dynamo) {
       id: decodeURIComponent(request.pathParams.id)
     };
 
-    var data = request.body;
-
-    return lib.respond(key, body, dynamo);
+    return lib.respond(key, request.body, dynamo);
   });
 
   api.delete(config.root + '/{hub}' + '/{id}', function (request) {
