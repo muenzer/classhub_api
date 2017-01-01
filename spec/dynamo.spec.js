@@ -118,6 +118,8 @@ describe("DynamoDB interface", function () {
     };
 
     var body = {
+      name: "foo",
+      id: id,
       size: 5
     };
 
